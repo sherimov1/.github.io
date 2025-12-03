@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML va Veb-dizayn Testi</title>
+    <style>
+        body {font-family: Arial, sans-serif; margin: 20px; background: #f0f2f5; -webkit-user-select: none; -moz-user-select: none; user-select: none;}
+        .container {max-width:900px; margin: 0 auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15);}
+        .header {background: #1e40af; color: white; padding: 30px; border-radius: 15px 15px 0 0; margin: -30px -30px 30px -30px; text-align: center;}
+        .timer {background: #dc2626; color: white; padding: 18px; border-radius: 12px; text-align: center; font-size: 32px; font-weight: bold; margin: 15px 0;}
+        .timer.warning {background: #f59e0b; color: black;}
+        .warning {background: #fee2e2; border: 1px solid #fecaca; color: #991b1b; padding: 20px; border-radius: 12px; margin: 20px 0; text-align: center; font-weight: bold; font-size: 19px;}
+        .question {margin: 30px 0; padding: 22px; border: 1px solid #e5e7eb; border-radius: 12px; background: #fafafa;}
+        .options label {display: block; margin: 14px 0; padding: 18px; background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 10px; cursor: pointer; transition: 0.3s;}
+        .options label:hover {background: #dbeafe; border-color: #3b82f6;}
+        input[type="text"] {padding: 16px; width: 100%; margin: 20px 0; border: 2px solid #d1d5db; border-radius: 10px; font-size: 18px; box-sizing: border-box;}
+        button {padding: 22px; background: #059669; color: white; border: none; cursor: pointer; width: 100%; font-size: 22px; margin-top: 50px; border-radius: 12px; font-weight: bold;}
+        button:hover {background: #047857;}
+        .watermark {position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg); font-size: 130px; color: rgba(220,38,38,0.1); pointer-events: none; z-index: 1;}
+        .penalty-alert {position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.97); color: #ff3333; display: none; justify-content: center; align-items: center; z-index: 99999; flex-direction: column; font-size: 70px; text-align: center;}
+    </style>
+</head>
+<body>
+
+    <div class="watermark">HIMOYALANGAN</div>
+
+    <div class="penalty-alert" id="penaltyAlert">
+        <div>SKRINSHOT ANIQLANDI!</div>
+        <div style="font-size: 90px; margin: 40px 0;">–5 BALL</div>
+        <div style="font-size: 40px;">Test davom etmoqda...</div>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>HTML va Veb-dizayn Testi</h1>
+            <p>10 ta savol • Har biri 1 ball • Vaqt: 10 daqiqa</p>
+        </div>
+
+        <div class="timer" id="timer">10:00</div>
+
+        <div class="warning">
+            DIQQAT! Skrinshot, DevTools yoki o'ng tugma → –5 ball jarima (bir marta, test davom etadi)
+        </div>
+
+        <input type="text" id="studentName" placeholder="Ism-familyangizni kiriting" required>
+
+        <!-- YANGI SAVOLLAR -->
+        <div class="question">
+            <p><strong>1. Veb brauzerlar tomonidan keng qo'llab-quvvatlanadigan shriftlar qatoriga kirmaydiganini toping?</strong></p>
+            <div class="options">
+                <label><input type="radio" name="q1" value="0"> a) Arial</label>
+                <label><input type="radio" name="q1" value="1"> b) Garamond</label>
+                <label><input type="radio" name="q1" value="2"> c) Comic Sans</label>
+                <label><input type="radio" name="q1" value="3"> d) Verdana</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>2. Tartibli ro'yxat HTMLda qanday teglar bilan yaratiladi?</strong></p>
+            <div class="options">
+                <label><input type="radio" name="q2" value="0"> a) &lt;ul&gt; va &lt;li&gt;</label>
+                <label><input type="radio" name="q2" value="1"> b) &lt;ol&gt; va &lt;li&gt;</label>
+                <label><input type="radio" name="q2" value="2"> c) &lt;list&gt; va &lt;item&gt;</label>
+                <label><input type="radio" name="q2" value="3"> d) &lt;dl&gt; va &lt;dt&gt;</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>3. Tartibsiz ro'yxat HTMLda qanday teglar bilan yaratiladi?</strong></p>
+            <div class="options">
+                <label><input type="radio" name="q3" value="0"> a) &lt;ul&gt; va &lt;li&gt;</label>
+                <label><input type="radio" name="q3" value="1"> b) &lt;ol&gt; va &lt;li&gt;</label>
+                <label><input type="radio" name="q3" value="2"> c) &lt;list&gt; va &lt;item&gt;</label>
+                <label><input type="radio" name="q3" value="3"> d) &lt;dl&gt; va &lt;dt&gt;</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>4. Matnning rangini o'zgartirish uchun qaysi atribut ishlatiladi?</strong></p>
+            <div class="options">
+                <label><input type="radio" name="q4" value="0"> a) color</label>
+                <label><input type="radio" name="q4" value="1"> b) text-color</label>
+                <label><input type="radio" name="q4" value="2"> c) font-color</label>
+                <label><input type="radio" name="q4" value="3"> d) style-color</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>5. Veb sahifa fonining rangini o'zgartirish uchun qaysi tegga atribut qo'shiladi?</strong></p>
+            <div class="options">
+                <label><input type="radio" name="q5" value="0"> a) &lt;head&gt;</label>
+                <label><input type="radio" name="q5" value="1"> b) &lt;body&gt;</label>
+                <label><input type="radio" name="q5" value="2"> c) &lt;html&gt;</label>
+                <label><input type="radio" name="q5" value="3"> d) &lt;div&gt;</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>6. Matnni chap tomondan tekislash uchun qaysi atribut qiymati ishlatiladi?</strong></p>
+            <div class="options">
+                <label><input type="radio" name="q6" value="0"> a) align="center"</label>
+                <label><input type="radio" name="q6" value="1"> b) align="left"</label>
+                <label><input type="radio" name="q6" value="2"> c) align="right"</label>
+                <label><input type="radio" name="q6" value="3"> d) align="justify"</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>7. Veb-dizayn yaxshi bo'lishi uchun matn stili qanday bo'lishi kerak?</strong></p>
+            <div class="options">
+                <label><input type="radio" name="q7" value="0"> a) Murakkab va rang-barang</label>
+                <label><input type="radio" name="q7" value="1"> b) Sodda va o'qish qulay</label>
+                <label><input type="radio" name="q7" value="2"> c) Ko'p shriftlar aralash</label>
+                <label><input type="radio" name="q7" value="3"> d) Faqat bir xil rangda</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>8. Qaysi ro'yxatda elementlar raqamlanadi?</strong></p>
+            <div class="options">
+                <label><input type="radio" name="q8" value="0"> a) Tartibli ro'yxat</label>
+                <label><input type="radio" name="q8" value="1"> b) Tartibsiz ro'yxat</label>
+                <label><input type="radio" name="q8" value="2"> c) Ta'rifli ro'yxat</label>
+                <label><input type="radio" name="q8" value="3"> d) Barcha ro'yxatlar</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>9. HTMLda matn o'lchamini o'zgartirish uchun qaysi CSS xususiyati ishlatiladi?</strong></p>
+            <div class="options">
+                <label><input type="radio" name="q9" value="0"> a) font-weight</label>
+                <label><input type="radio" name="q9" value="1"> b) font-size</label>
+                <label><input type="radio" name="q9" value="2"> c) text-size</label>
+                <label><input type="radio" name="q9" value="3"> d) size</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>10. Veb sahifada muhim ma'lumotlar odatda qayerga joylashtiriladi?</strong></p>
+            <div class="options">
+                <label><input type="radio" name="q10" value="0"> a) Sahifaning pastki qismiga</label>
+                <label><input type="radio" name="q10" value="1"> b) Sahifaning o'rtasiga</label>
+                <label><input type="radio" name="q10" value="2"> c) Sahifaning yuqori qismiga</label>
+                <label><input type="radio" name="q10" value="3"> d) Sahifaning chetlariga</label>
+            </div>
+        </div>
+
+        <button onclick="checkTest()">TESTNI YAKUNLASH</button>
+    </div>
+
+    <script>
+        let penaltyApplied = false;
+        // To'g'ri javoblar indeksi (a=0, b=1, c=2, d=3)
+        const correctAnswers = [2, 1, 0, 0, 1, 1, 1, 0, 1, 2];
+
+        function triggerPenalty() {
+            if (penaltyApplied) return;
+            penaltyApplied = true;
+            document.getElementById('penaltyAlert').style.display = 'flex';
+            setTimeout(() => document.getElementById('penaltyAlert').style.display = 'none', 4000);
+        }
+
+        // Himoya
+        document.addEventListener('keyup', e => { if(e.key==='PrintScreen') triggerPenalty(); });
+        document.addEventListener('keydown', e => { if(e.key==='PrintScreen'){e.preventDefault(); triggerPenalty();} });
+        setInterval(() => {
+            if((window.outerWidth-window.innerWidth)>200 || (window.outerHeight-window.innerHeight)>200) triggerPenalty();
+        }, 500);
+        document.oncontextmenu = () => { triggerPenalty(); return false; };
+
+        // Taymer
+        let timeLeft = 600;
+        const timerInterval = setInterval(() => {
+            timeLeft--;
+            const m = String(Math.floor(timeLeft/60)).padStart(2,'0');
+            const s = String(timeLeft%60).padStart(2,'0');
+            document.getElementById('timer').textContent = `${m}:${s}`;
+            if(timeLeft<=120) document.getElementById('timer').classList.add('warning');
+            if(timeLeft<=0) { clearInterval(timerInterval); calculateAndSend('Vaqt tugadi'); }
+        }, 1000);
+
+        function checkTest() {
+            const name = document.getElementById('studentName').value.trim();
+            if(!name) return alert('Ismingizni kiriting!');
+            for(let i=1;i<=10;i++){
+                if(!document.querySelector(`input[name="q${i}"]:checked`)) return alert('Barcha savollarga javob bering!');
+            }
+            clearInterval(timerInterval);
+            calculateAndSend('Qo‘lda yakunlandi');
+        }
+
+        function calculateAndSend(reason) {
+            const name = document.getElementById('studentName').value.trim() || 'Noma\'lum';
+            let score = 0;
+            for(let i=1;i<=10;i++){
+                const sel = document.querySelector(`input[name="q${i}"]:checked`);
+                if(sel && parseInt(sel.value) === correctAnswers[i-1]) score++;
+            }
+            const finalScore = Math.max(0, score - (penaltyApplied ? 5 : 0));
+
+            alert(`Test yakunlandi!\n\nIsm: ${name}\nBall: ${finalScore}/10` +
+                  (penaltyApplied ? '\n(Skrinshot jarimasi hisobga olingan)' : ''));
+
+            const data = {
+                name: name,
+                score: finalScore,
+                total: 10,
+                penalty: penaltyApplied ? 'Ha (-5)' : 'Yo‘q',
+                time: new Date().toLocaleTimeString('uz-UZ'),
+                date: new Date().toLocaleDateString('uz-UZ'),
+                reason: reason
+            };
+            fetch('https://script.google.com/macros/s/AKfycbzD5MX6CwnslHvIHysQdpoOl4SA3yYV0v8blv6akToAF_HeYX2YdVP7tqlon3mWDYoiMA/exec', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                body: new URLSearchParams(data)
+            });
+            document.querySelectorAll('input, button').forEach(el => el.disabled = true);
+        }
+
+        window.onload = () => {
+            alert('HTML va Veb-dizayn Testi boshlandi!\nVaqt: 10 daqiqa\nSkrinshot → –5 ball jarima!');
+        };
+    </script>
+</body>
+<p> Sherimov Shermat 
+</html>
